@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>학생정보 기입 페이지</title>
+</head>
+<body>
+  <form th:action="@{/student/write}" method="post" th:object="${studentVO}">
+    <span>학생이름 :</span>
+    <input th:field="*{studentName}" placeholder="학생이름을 적어주세요"/>
+    <span>학교이름 :</span>
+    <input th:field="*{schoolName}" placeholder="학교이름을 적어주세요"/>
+    <span>영어점수 :</span>
+    <input th:field="*{eng}" placeholder="영어점수를 적어주세요"/>
+    <span>국어점수 :</span>
+    <input th:field="*{kor}" placeholder="국어점수를 적어주세요"/>
+    <span>수학점수 :</span>
+    <input th:field="*{math}" placeholder="수학점수를 적어주세요"/>
+    <button type="button">완료</button>
+  </form>
+</body>
+  <script th:inline="javascript">
+    const submitButton = document.querySelector("button");
+    const form = document.querySelector("form");
+    submitButton.addEventListener("click", () => {
+      form.submit();
+    })
+  </script>
+</html>

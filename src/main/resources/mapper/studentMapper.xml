@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.task.mapper.StudentMapper">
+
+    <insert id="insert" parameterType="StudentVO">
+        INSERT INTO TBL_STUDENT_TASK (id, STUDENT_NAME, SCHOOL_NAME, ENG, KOR, MATH)
+        VALUES (SEQ_STUDENT_TASK.NEXTVAL, #{studentName}, #{schoolName}, #{eng}, #{kor}, #{math})
+    </insert>
+
+    <select id="selectAll" parameterType="StudentDTO">
+        SELECT ID, STUDENT_NAME, SCHOOL_NAME, ENG, KOR, MATH, TOTAL, AVERAGE
+        FROM VIEW_STUDENT_TASK
+        ORDER BY TOTAL DESC
+    </select>
+
+    <select id="select" parameterType="Long" resultType="StudentDTO">
+        SELECT ID, STUDENT_NAME, SCHOOL_NAME, ENG, KOR, MATH, TOTAL, AVERAGE
+        FROM VIEW_STUDENT_TASK
+        WHERE ID = #{id}
+    </select>
+</mapper>

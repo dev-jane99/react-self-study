@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>학생정보 기입 페이지</title>
+</head>
+<body>
+    <table  border="1">
+        <tr>
+            <th>아이디</th>
+            <th>학생명</th>
+            <th>학교명</th>
+            <th>영어 점수</th>
+            <th>국어 점수</th>
+            <th>수학 점수</th>
+            <th>전체 점수 합산</th>
+            <th>평균 점수</th>
+        </tr>
+            <tr th:each="student : ${student}" th:object="${student}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{studentName}"></td>
+                <td th:text="*{schoolName}"></td>
+                <td th:text="*{eng}"></td>
+                <td th:text="*{kor}"></td>
+                <td th:text="*{math}"></td>
+                <td th:text="*{total}"></td>
+                <td th:text="*{average}"></td>
+            </tr>
+    </table>
+</body>
+<script th:inline="javascript">
+    // const flag = [[${students}]]
+</script>
+</html>
